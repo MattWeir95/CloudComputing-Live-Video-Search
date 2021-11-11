@@ -17,7 +17,7 @@ export default function ArtistList(props) {
           onClick={(e) => {
             handeClick(artist.id);
           }}
-          className="border border-black rounded text-white p-2 shadow bg-green-400"
+          className="border border-black rounded text-black p-2 shadow bg-yellow-200"
           key={index}
         >
           {" "}
@@ -32,7 +32,7 @@ export default function ArtistList(props) {
       <div className=" mt-10">
         <h1 className="text-3xl text-center">Choose your artist</h1>
 
-        <div className="flex flex-wrap mt-10 mb-5 justify-center items-center border shadow border-black mx-5">
+        <div className="flex flex-wrap mt-10 mb-5 justify-center items-center border shadow border-black mx-5 bg-white rounded shadow">
           <ArtistListDisplay data={props.artistsList} />
         </div>
       </div>

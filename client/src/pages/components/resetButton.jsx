@@ -8,7 +8,7 @@ export default function ResetButton(props) {
   ) {
     return (
       <button
-        className="fixed mt-5 ml-8 border-2 p-2 px-12 py-8 border-black rounded bg-red-200 hover:bg-gray-400 transition duration-1000 ease-in-out "
+        className="text-white fixed mt-5 ml-6 border px-4 py-1 border-white rounded bg-red-600 hover:text-red-600 hover:bg-white"
         onClick={(e) => {
           props.setShowGigs(false);
           props.setYoutubeVideos({ error: null, message: "", data: "" });
