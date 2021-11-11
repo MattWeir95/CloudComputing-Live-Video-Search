@@ -1,9 +1,11 @@
 var express = require("express");
 var router = express.Router();
 const https = require("https");
-const API_KEY = "awRCiY9zDmP5k4A1";
+
+const API_KEY = process.env.SONGKICK_KEY;
 
 router.get("/artists/:query", function (req, res, next) {
+  console.log(API_KEY)
   var userInput = req.params.query.replace(/ /g, "&");
   const options = {
     hostname: "api.songkick.com",
@@ -26,13 +28,15 @@ router.get("/artists/:query", function (req, res, next) {
       const bodyString = body.join("");
       const rsp = JSON.parse(bodyString);
       var ARTIST_LIST = null;
-      if (rsp.resultsPage.results.artist) {
-        ARTIST_LIST = rsp.resultsPage.results;
-      }
-
-      if (ARTIST_LIST) {
-        res.status(200).send(ARTIST_LIST);
-      } else {
+    
+        if (rsp.resultsPage.results && rsp.resultsPage.results.artist) {
+          ARTIST_LIST = rsp.resultsPage.results;
+        }
+  
+        if (ARTIST_LIST) {
+          res.status(200).send(ARTIST_LIST);
+        }
+       else {
         res.status(405).send({
           response: {
             error: true,
