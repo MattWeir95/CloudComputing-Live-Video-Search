@@ -26,5 +26,9 @@ The second half of the assignment was to user docker and containerise the applic
 
 ![Youtube List](client/public/screenshot4.png)
 
+## To get running
+Run npm install on both the client and server directories,
+Include a .env file in the server directory containing your GOOGLE_API_KEY & SONGKICK_API_KEY,
+Run npm start on both the client and server directories.
 
 
